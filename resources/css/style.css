@@ -1,0 +1,264 @@
+
+/* Color de los enlaces ANTES del scroll */
+.navbar-scroll .nav-link,
+.navbar-scroll .navbar-toggler-icon,
+.navbar-scroll .navbar-brand {
+  color: #fff;
+}
+
+/* Color de los enlaces DESPUÉS del scroll */
+.navbar-scrolled .nav-link,
+.navbar-scrolled .navbar-toggler-icon,
+.navbar-scrolled .navbar-brand {
+  color: #fff;
+}
+
+/* Efecto hover para los enlaces: cambiar a naranja */
+.nav-link:hover {
+  color: #ff8000 !important; /* Naranja al hacer hover */
+  transition: color 0.3s ease; /* Transición suave de color */
+}
+
+/* Color de la barra de navegación DESPUÉS del scroll */
+.navbar-scroll,
+.navbar-scrolled {
+  background-color: #cbbcb1;
+}
+
+.mask-custom {
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.312);
+}
+
+.navbar-brand {
+  font-size: 3.0rem;
+  letter-spacing: 5px;
+}
+
+
+/* landing */
+.image-container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+  }
+
+  .image-container::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad para oscurecer */
+	z-index: 1; /* Asegura que la capa oscura esté encima de la imagen */
+  }
+
+  .image-container img {
+	position: relative;
+	z-index: 0; /* Asegura que la imagen esté debajo de la capa oscura */
+  }
+
+
+  /* quienes somos */
+  /* Estilo del título */
+.nosotros-titulo {
+	font-family: 'Alatsi', sans-serif; /* Fuente Alatsi */
+	color: #565656; /* Color naranja */
+	font-size: 5.0rem; /* Tamaño de la fuente (ajustable) */
+	text-align: left; /* Alineación a la izquierda */
+  }
+
+  /* Estilo del texto debajo del título */
+  .nosotros-texto {
+	font-family: 'Alata', sans-serif; /* Fuente Alata */
+	color: #000; /* Color negro */
+	font-size: 1.7rem; /* Tamaño de la fuente más pequeño (ajustable) */
+	text-align: left; /* Alineación a la izquierda */
+  }
+
+
+  /* como funciona */
+  /* Fondo del contenedor */
+.contenido-fondo {
+	background-color: #ffdbc8; /* Color de fondo */
+  }
+
+  /* Tamaño personalizado para las imágenes */
+ /* Tamaño personalizado para las imágenes */
+.custom-img {
+	width: 20px;  /* Ancho de la imagen */
+	height: 20px; /* Altura de la imagen */
+	object-fit: cover; /* Asegura que la imagen se ajuste sin distorsionarse */
+  }
+
+  /* Título (naranja, más grande) */
+  .contenido-titulo {
+	font-family: 'Alatsi', sans-serif; /* Fuente Alatsi */
+	color: #FF7F00; /* Color naranja */
+	font-size: 2.0rem; /* Tamaño del texto ajustado */
+	text-align: center;
+  }
+
+  /* Texto debajo del título (negro, más pequeño) */
+  .contenido-texto {
+	font-family: 'Alata', sans-serif; /* Fuente Alata */
+	color: #000; /* Color negro */
+	font-size: 1.2rem; /* Texto más pequeño */
+	text-align: center;
+  }
+
+
+  /* letras arriba de imagenes */
+  .image-container {
+    position: relative; /* Necesario para posicionar el texto encima de la imagen */
+    height: 100vh; /* Puedes ajustar esta altura según tus necesidades */
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%; /* Centra el texto verticalmente */
+    left: 50%; /* Centra el texto horizontalmente */
+    transform: translate(-90%, -50%); /* Ajusta la posición del texto */
+    color: white; /* Color blanco para el texto */
+    text-align:left; /* Centra el texto */
+    z-index: 10; /* Asegura que el texto esté por encima de la imagen */
+}
+
+.titulo {
+    font-family: 'Alatsi', sans-serif; /* Fuente Alatsi */
+    font-size: 3.0rem; /* Tamaño del título */
+    margin-bottom: 10px; /* Espacio debajo del título */
+}
+
+.descripcion {
+    font-family: 'Alata', sans-serif; /* Fuente Alata */
+    font-size: 1.5rem; /* Tamaño más pequeño para la descripción */
+    margin-bottom: 40px; /* Espacio debajo de la descripción */
+}
+
+
+/* boton */
+
+* {
+	box-sizing: border-box;
+  }
+
+
+
+  h1{
+	color:white;
+  }
+
+  .contentBox{
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+  }
+
+  .buttonBox{
+	margin: 0 0px 40px;
+	position:relative;
+	max-width: 200px;
+	min-width: 150px;
+	flex: 20%;
+  }
+
+  button{
+	width:100%;
+	height:70px;
+	position:relative;
+	background:rgba(255, 255, 255, .27);
+	text-transform:uppercase;
+	color:white;
+	font-weight:700;
+	letter-spacing:1px;
+	border:none;
+	font-size:15px;
+	outline:none;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	cursor: pointer;
+
+  }
+
+
+  #ninth>button{
+	transition:all .5s ease-in-out;
+  }
+
+  #ninth:hover button{
+	background:white;
+	color:#ff6600;
+  }
+
+
+  /* TENTH BUTTON */
+
+  #tenth>button{
+	letter-spacing:0;
+  }
+
+  #tenth span{
+	letter-spacing:0;
+	display:inline-block;
+	position:relative;
+	width:8px;
+	transition:all .5s ease-in-out;
+  }
+
+  #tenth span:nth-of-type(4){
+	width:5px;
+  }
+
+  #tenth span:nth-of-type(6){
+	width:1px;
+  }
+
+  #tenth span:nth-of-type(8){
+	width:4px;
+  }
+
+  #tenth:hover span:nth-of-type(1){
+	animation:h .5s;
+  }
+
+  #tenth:hover span:nth-of-type(2){
+	animation:o .5s;
+  }
+
+  #tenth:hover span:nth-of-type(3){
+	animation:v .5s;
+  }
+
+  #tenth:hover span:nth-of-type(4){
+	animation:e .5s;
+  }
+
+  #tenth:hover span:nth-of-type(5){
+	animation:r .5s;
+  }
+
+  #tenth:hover span:nth-of-type(7){
+	animation:t .5s;
+  }
+
+  #tenth:hover span:nth-of-type(8){
+	animation:e .5s;
+  }
+
+  #tenth:hover span:nth-of-type(9){
+	animation:n .5s;
+  }
+
+
+
+
+
+
+  /* diseño */
+  .diseñonav{
+	background-color: #FF9B63;
+
+
+  }
