@@ -11,10 +11,15 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Product $product = null)
+    public function index(Request $request)
     {
-        $products = Product::all(); // Obtiene todos los productos
-        return view('product.index', compact('products', 'product')); // Pasa también el producto, si está definido
+        // Obtener el valor de la cantidad de productos a mostrar, por defecto 10
+        $perPage = $request->input('per_page', 10); // Obtiene el valor de 'per_page', si no existe, usa 10 como valor predeterminado
+    
+        // Obtener los productos con paginación
+        $products = Product::paginate($perPage);
+    
+        return view('admin.products.index', compact('products'));
     }
     
 
@@ -66,11 +71,7 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
-    {
-        // En lugar de retornar una vista diferente, regresas al index con el producto a editar
-        return $this->index($product);
-    }
+
     
 
     /**

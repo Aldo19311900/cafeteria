@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +23,7 @@ Route::get('/', function () {
 // Rutas para el rol con role_id = 1 (admin)
 Route::middleware(['auth', 'verified', 'role:2'])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('admin.dashboard');
     })->name('dashboard');
     // Rutas para gestión de productos
     Route::get('/products', [ProductController::class, 'index'])->name('products');
@@ -30,6 +31,10 @@ Route::middleware(['auth', 'verified', 'role:2'])->group(function () {
     Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
     Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
     Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+    // Rutas para gestión de usuarios
+    Route::get('/users', [UserController::class, 'index'])->name('users');
+
 });
 
 // Rutas para el rol con role_id = 2 (usuarios de cafetería)
