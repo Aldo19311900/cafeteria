@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CreditTransactionsController;
+use App\Http\Controllers\InventoryAjustmentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,12 +30,19 @@ Route::middleware(['auth', 'verified', 'role:2'])->group(function () {
     // Rutas para gestión de productos
     Route::get('/products', [ProductController::class, 'index'])->name('products');
     Route::post('/products', [ProductController::class, 'store'])->name('products.store');
-    Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
     Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
     Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
 
     // Rutas para gestión de usuarios
     Route::get('/users', [UserController::class, 'index'])->name('users');
+    Route::post('/users/{user}/add-credit', [UserController::class, 'addCredit'])->name('users.add.credit');
+
+    //Rutas para transacciones
+    Route::get('/transactions', [CreditTransactionsController::class, 'transactionsIndex'])->name('transactions');
+
+
+    //Rutas para el inventario de productos
+    Route::get('/inventory-adjustments', [InventoryAjustmentController::class, 'index'])->name('inventory.adjustments');
 
 });
 
@@ -51,3 +60,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 require __DIR__.'/auth.php';
+
+Route::get('/manifest.json', function () {
+    return view('vendor.offline');
+})->name('laravelpwa.manifest');
