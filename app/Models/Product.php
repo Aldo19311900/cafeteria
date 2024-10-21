@@ -15,6 +15,7 @@ class Product extends Model
         'price',
         'stock',
         'image',
+        'product_type_id'
     ];
 
     /**
@@ -34,4 +35,15 @@ class Product extends Model
     {
         return $this->hasMany(InventoryAdjustment::class);
     }
+
+    public function productType()
+    {
+        return $this->belongsTo(ProductType::class);
+    }
+    public function adjustments()
+{
+    return $this->hasMany(InventoryAdjustment::class, 'product_id');
+}
+
+    
 }
