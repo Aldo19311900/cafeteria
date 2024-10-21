@@ -18,4 +18,24 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+
+</IfModule>
+
+# Activa las reglas de expiración y cacheo solo para una carpeta específica
+<IfModule mod_expires.c>
+    ExpiresActive On
+    # Especifica la carpeta donde están las imágenes, por ejemplo /storage/uploads
+    <Directory "/public/storage/uploads">
+        ExpiresByType image/jpg "access plus 1 year"
+        ExpiresByType image/jpeg "access plus 1 year"
+        ExpiresByType image/gif "access plus 1 year"
+        ExpiresByType image/png "access plus 1 year"
+    </Directory>
+</IfModule>
+
+<IfModule mod_headers.c>
+    # Aplica Cache-Control solo a las imágenes dentro de la carpeta
+    <Directory "/public/storage/uploads">
+        Header set Cache-Control "public, max-age=31536000"
+    </Directory>
 </IfModule>
